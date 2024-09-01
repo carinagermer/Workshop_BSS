@@ -1,6 +1,6 @@
 function wT = FixedPoint(eYW,b0,fsamp,B,G,DG,PLOT_PAUSE)
 % eYW = whiten observations
-% ind = point for initialization
+% b0 = initialization of separation vector
 % fsamp = sample frequency
 % B = separation matrix
 % G = first derivate of contrast function
