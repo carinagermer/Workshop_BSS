@@ -9,7 +9,7 @@ PT_Func = @(x) x.*abs(x);
     % [~,ind] = max(abs(ACT));
     % ii=ii+1;
 
-    ACT(ind-10:ind+10)=0;
+    ACT([max([1,ind-10]):min([length(ACT),ind+10])])=0;
 
     wT = FixedPointEMG(eYW,ind,fsamp,TolX,MAXCOUNT,B,G,DG,PLOTiBSS);
     B(:,ii) = wT;                                   
@@ -20,7 +20,7 @@ PT_Func = @(x) x.*abs(x);
     PT = PT_Func(s);
     % PT = PT/norm(PT);
 
-    Spikes = peakseek(PT,0.001*fsamp,0.1); %MinDistance = 0.001*fsamp, MinHeight 0.1
+    Spikes = peakseek(PT,0.001*fsamp,0.15); %MinDistance = 0.001*fsamp, MinHeight 0.1
     % if PLOTiBSS, hold off, plot(PT,'k'), hold on, scatter(Spikes,PT(Spikes),10,'r','filled'), xlabel('Sample'), end
 
     %Delete spikes in ACT
