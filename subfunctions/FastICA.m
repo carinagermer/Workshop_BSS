@@ -1,7 +1,7 @@
 function [Spikes,PT,ACT,B] = FastICA(eYW,fsamp,B,G,DG,ACT,MAXCOUNT,ii,ind,PLOTiBSS)
 
 
-TolX = 1e-4;                    % tolerance fixed point !!!!!!!!!!!!!!!!!
+TolX = 1e-5;                    % tolerance fixed point !!!!!!!!!!!!!!!!!
 
 PT_Func = @(x) x.*abs(x);
 
@@ -24,7 +24,7 @@ PT_Func = @(x) x.*abs(x);
     % if PLOTiBSS, hold off, plot(PT,'k'), hold on, scatter(Spikes,PT(Spikes),10,'r','filled'), xlabel('Sample'), end
 
     %Delete spikes in ACT
-    LW = 5e-4;
+    LW = 10e-4;
     auxidx=Spikes;
     auxidx(auxidx<=round(LW*fsamp))=[];
     auxidx(auxidx>=length(s)-round(LW*fsamp))=[];
